@@ -3,8 +3,11 @@ layout: page
 description: "你想找的礼物都在这里"
 ---
 
+                    
+<hr>
 {% for post in paginator.posts %}
-<div class="post-preview">
+<!--
+<div class="post-preview" >
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
             {{ post.title }}
@@ -21,8 +24,24 @@ description: "你想找的礼物都在这里"
     <p class="post-meta">
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
     </p>
-</div>
+</div>-->
+<a href="{{ post.url | prepend: site.baseurl }}">
+<header class="intro-header" style="height: 202px;background-image: url('{{ site.baseurl }}/{% if post.header-img %}{{ post.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h3>{% if post.title %}{{ post.title }}{% else %}{{ site.title }}{% endif %}</h3>
+                    <!--<hr class="small">-->
+                    <span class="subheading">{{ post.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+ </a>
 <hr>
+
 {% endfor %}
 
 <!-- Pager -->
