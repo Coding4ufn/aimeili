@@ -25,6 +25,8 @@ description: "你想找的礼物都在这里"
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
     </p>
 </div>-->
+{% if post.url contains 'detail' %}
+{% else %}
 <a href="{{ post.url | prepend: site.baseurl }}">
 <header class="intro-header" style="height: 202px;background-image: url('{{ site.baseurl }}/{% if post.header-img %}{{ post.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
@@ -41,6 +43,7 @@ description: "你想找的礼物都在这里"
 </header>
  </a>
 <hr>
+{% endif %}
 
 {% endfor %}
 
